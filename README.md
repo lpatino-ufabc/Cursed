@@ -6,3 +6,10 @@ durante o curso de POO da Universidade Federal do ABC durante
 o segundo quadrimestre de 2021.
 
 Autor: Luciano Cardoso
+
+Primeira Versão:
+	* Estruturação básica
+
+v.1.1:
+	* Simplificação classes de inimigos
+	* Complementação de métodos
