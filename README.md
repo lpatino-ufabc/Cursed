@@ -13,3 +13,7 @@ Primeira Versão:
 v.1.1:
 	* Simplificação classes de inimigos
 	* Complementação de métodos
+
+v.1.2:
+	* Alteração de métodos
+	* Complementadas as classes de heróis
