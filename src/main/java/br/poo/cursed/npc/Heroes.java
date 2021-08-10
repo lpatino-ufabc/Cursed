@@ -22,10 +22,12 @@ public abstract class Heroes {
     protected String tipoArmadura;
     protected double nivelArmadura;
     protected String tipoArma;
+    protected double XP;
+    protected double lvlXP;
 
     public Heroes(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
-            double nivelArmadura, String tipoArma) {
+            double nivelArmadura, String tipoArma, double XP, double lvlXP) {
         this.nivel = nivel;
         this.nome = nome;
         this.forca = forca;
@@ -36,6 +38,8 @@ public abstract class Heroes {
         this.tipoArmadura = tipoArmadura;
         this.nivelArmadura = nivelArmadura;
         this.tipoArma = tipoArma;
+        this.XP = nivel*XP;
+        this.lvlXP = lvlXP;
     }
     public abstract double getNivel();
     

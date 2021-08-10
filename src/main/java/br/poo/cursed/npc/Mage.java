@@ -6,9 +6,9 @@ public class Mage extends Heroes implements Ataque, Especial{
     
     public Mage(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
-            double nivelArmadura, String tipoArma) {
+            double nivelArmadura, String tipoArma, double XP, double lvlXP) {
         super(nivel, nome, forca, agilidade, intelecto, vida, fe, tipoArmadura, 
-            nivelArmadura, tipoArma);
+            nivelArmadura, tipoArma, XP, lvlXP);
     }
     
     @Override

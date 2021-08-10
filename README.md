@@ -21,3 +21,6 @@ v.1.2:
 v.1.3:
 	* Implementação dos atributos de heróis
 	* Implementacao de atributos nos cálculos de danos
+
+v.1.4:
+	* Implementação de controle de XP para nível de herói
