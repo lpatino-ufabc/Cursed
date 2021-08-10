@@ -3,6 +3,7 @@ package br.poo.cursed.mob;
 import br.poo.cursed.npc.*;
 
 public class Zombies extends Inimigo implements Ataque, Especial, Curar{
+    
     public Zombies(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
             String tipoDivindade, String tipoArma, double XP) {

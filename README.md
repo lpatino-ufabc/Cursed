@@ -19,3 +19,4 @@ v.1.2:
 	* Complementadas as classes de heróis
 v.1.3:
 	* Implementação dos atributos de heróis
+	* Implementacao de atributos nos cálculos de danos

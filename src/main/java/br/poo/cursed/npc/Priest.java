@@ -3,6 +3,7 @@ package br.poo.cursed.npc;
 import br.poo.cursed.mob.*;
 
 public class Priest extends Heroes implements Ataque, Especial{
+    
     public Priest(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
             double nivelArmadura, String tipoArma) {
