@@ -35,6 +35,8 @@ public abstract class Inimigo {
     
     public abstract double getVida();   
     
+    public abstract void setVida(double vida);   
+    
     public abstract String getArma();
     
     public abstract String getTipoArmadura();
@@ -50,5 +52,7 @@ public abstract class Inimigo {
     public abstract double getXP();
     
     public abstract void tomarDano(Heroes heroi);
+    
+    public abstract void tomarDanoEspecial(Heroes heroi);
 
 }

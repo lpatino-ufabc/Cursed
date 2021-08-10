@@ -5,6 +5,8 @@
  */
 package br.poo.cursed.npc;
 
+import br.poo.cursed.mob.Inimigo;
+
 /**
  *
  * @author lpatinocardoso
@@ -30,11 +32,17 @@ public abstract class Heroes {
     
     public abstract String getNome();
     
-    public abstract double getVida();   
+    public abstract double getVida(); 
+    
+    public abstract void setVida(double vida); 
     
     public abstract String getTipoArmadura();
     
     public abstract double getNivelArmadura();
     
     public abstract String getArma();
+    
+    public abstract void tomarDano(Inimigo inimigo);
+    
+    public abstract void tomarDanoEspecial(Inimigo inimigo);
 }

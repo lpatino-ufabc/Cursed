@@ -29,7 +29,12 @@ public class Gryphon extends Inimigo implements Ataque, Especial, Curar{
     public double getVida(){
         return this.vida;
     }   
-        
+    
+    @Override
+    public void setVida(double vida){
+        this.vida = vida;
+    } 
+    
     @Override
     public String getTipoArmadura(){
         return this.tipoArmadura;
@@ -142,6 +147,57 @@ public class Gryphon extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public void tomarDano(Heroes heroi){
-     //   
+        if (heroi.getArma().equals("Arco")) {
+            this.vida = this.vida - (60 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+        if (heroi.getArma().equals("Cajado")) {
+            this.vida = this.vida - (36 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+        if (heroi.getArma().equals("Massa de Guerra")) {
+            this.vida = this.vida - (70 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+        if (heroi.getArma().equals("Machado de Guerra")) {
+            this.vida = this.vida - (72 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+    }
+    
+    @Override
+    public void tomarDanoEspecial(Heroes heroi){
+        if (heroi.getArma().equals("Arco")) {
+            this.vida = this.vida - (60 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+        if (heroi.getArma().equals("Cajado")) {
+            this.vida = this.vida - (36 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+        if (heroi.getArma().equals("Massa de Guerra")) {
+            this.vida = this.vida - (70 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
+        if (heroi.getArma().equals("Machado de Guerra")) {
+            this.vida = this.vida - (72 - this.nivelArmadura);
+            if (this.vida < 0) {
+                this.vida = 0;
+            }
+        }
     }
 }

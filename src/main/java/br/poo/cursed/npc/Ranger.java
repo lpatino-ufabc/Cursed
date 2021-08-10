@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.poo.cursed.npc;
 
-/**
- *
- * @author lpatinocardoso
- */
+import br.poo.cursed.mob.Inimigo;
+
 public class Ranger extends Heroes implements Ataque, Especial{
     public Ranger(double nivel, String nome, double vida, String tipoArmadura, 
             double nivelArmadura, String tipoArma) {
@@ -29,6 +22,11 @@ public class Ranger extends Heroes implements Ataque, Especial{
     public double getVida(){
         return this.vida;
     }   
+    
+    @Override
+    public void setVida(double vida){
+        this.vida = vida;
+    }
     
     @Override
     public String getTipoArmadura(){
@@ -102,6 +100,16 @@ public class Ranger extends Heroes implements Ataque, Especial{
     
     @Override
     public void ataqueSobrenatural(){
+        //
+    }
+    
+    @Override
+    public void tomarDano(Inimigo inimigo){
+        //
+    }
+    
+    @Override
+    public void tomarDanoEspecial(Inimigo inimigo){
         //
     }
 }
