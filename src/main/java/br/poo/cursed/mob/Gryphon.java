@@ -1,24 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.poo.cursed.mob;
 
-/**
- *
- * @author lpatinocardoso
- */
-public class Gryphon extends Mythic implements Ataque, Especial, Curar{
+import br.poo.cursed.npc.Heroes;
+
+public class Gryphon extends Inimigo implements Ataque, Especial, Curar{
     public Gryphon(double nivel, String nome, double vida, String tipoArmadura,
-            double nivelArmadura, String tipoDivindade, String tipoArma) {
-        super(nivel, nome, vida, tipoArmadura, nivelArmadura, tipoDivindade,
-                tipoArma);
+            double nivelArmadura, String hierarquia, double nivelAlma, 
+            String tipoDivindade, String tipoArma, double XP) {
+        super(nivel, nome, vida, tipoArmadura, nivelArmadura, hierarquia,
+              nivelAlma, tipoDivindade, tipoArma, XP);
     }
     
     @Override
     public double getNivel(){
         return this.nivel;
+    }
+    
+    @Override
+    public String getHierarquia(){
+        return this.hierarquia;
     }
     
     @Override
@@ -42,6 +41,11 @@ public class Gryphon extends Mythic implements Ataque, Especial, Curar{
     }
     
     @Override
+    public double getAlma(){
+        return this.nivelAlma;
+    }
+    
+    @Override
     public String getDivindade(){
         return this.tipoDivindade;
     }
@@ -52,62 +56,67 @@ public class Gryphon extends Mythic implements Ataque, Especial, Curar{
     }
     
     @Override
-    public void ataqueSimples(){
+    public double getXP(){
+        return this.XP;
+    }
+    
+    @Override
+    public void ataqueSimples(Heroes heroi){
+        ;
+    }
+    
+    @Override
+    public void ataqueRapido(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueRapido(){
+    public void ataqueForte(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueForte(){
+    public void ataqueCarregado(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueCarregado(){
+    public void ataqueCounter(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueCounter(){
+    public void ataqueVampirico(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueVampirico(){
+    public void ataqueVenenoso(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueVenenoso(){
+    public void ataqueFogo(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueFogo(){
+    public void ataqueVoador(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueVoador(){
+    public void ataqueExplosivo(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueExplosivo(){
+    public void ataqueMaldicao(Heroes heroi){
         //
     }
     
     @Override
-    public void ataqueMaldicao(){
-        //
-    }
-    
-    @Override
-    public void ataqueSobrenatural(){
+    public void ataqueSobrenatural(Heroes heroi){
         //
     }
     
@@ -126,8 +135,13 @@ public class Gryphon extends Mythic implements Ataque, Especial, Curar{
         this.vida += 0.5*this.vida;
     }
     
-    @Override
+    @Override    
     public void rajadaVida(){
         this.vida += this.vida;
+    }
+    
+    @Override
+    public void tomarDano(Heroes heroi){
+     //   
     }
 }

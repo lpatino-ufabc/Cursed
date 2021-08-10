@@ -1,27 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.poo.cursed.mob;
 
-/**
- *
- * @author lpatinocardoso
- */
+import br.poo.cursed.npc.Heroes;
+
 public interface Especial {
     
-    public void ataqueVampirico();
+    public void ataqueVampirico(Heroes heroi);
     
-    public void ataqueVenenoso();
+    public void ataqueVenenoso(Heroes heroi);
     
-    public void ataqueFogo();
+    public void ataqueFogo(Heroes heroi);
     
-    public void ataqueVoador();
+    public void ataqueVoador(Heroes heroi);
     
-    public void ataqueExplosivo();
+    public void ataqueExplosivo(Heroes heroi);
     
-    public void ataqueMaldicao();
+    public void ataqueMaldicao(Heroes heroi);
     
-    public void ataqueSobrenatural();    
+    public void ataqueSobrenatural(Heroes heroi);    
 }
