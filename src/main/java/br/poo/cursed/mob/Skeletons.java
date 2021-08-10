@@ -1,6 +1,6 @@
 package br.poo.cursed.mob;
 
-import br.poo.cursed.npc.Heroes;
+import br.poo.cursed.npc.*;
 
 public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     public Skeletons(double nivel, String nome, double vida, String tipoArmadura,
@@ -28,12 +28,12 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     @Override
     public double getVida(){
         return this.vida;
-    } 
+    }
     
     @Override
     public void setVida(double vida){
         this.vida = vida;
-    } 
+    }   
         
     @Override
     public String getTipoArmadura(){
@@ -66,63 +66,256 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public void ataqueSimples(Heroes heroi){
-        ;
+    public double ataqueSimples(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod;                
+        return dano;
     }
     
     @Override
-    public void ataqueRapido(Heroes heroi){
-        //
+    public double ataqueRapido(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*075;                
+        return dano;
     }
     
     @Override
-    public void ataqueForte(Heroes heroi){
-        //
+    public double ataqueForte(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*1.5;                
+        return dano;
     }
     
     @Override
-    public void ataqueCarregado(Heroes heroi){
-        //
+    public double ataqueCarregado(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*2;                
+        return dano;
     }
     
     @Override
-    public void ataqueCounter(Heroes heroi){
-        //
+    public double ataqueCounter(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*nivelArmadura;                
+        return dano;
     }
     
     @Override
-    public void ataqueVampirico(Heroes heroi){
-        //
+    public double ataqueVampirico(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+        
+        this.curativo();
+        double dano = nivel*base*mod*nivelArmadura;        
+        return dano;
     }
     
     @Override
-    public void ataqueVenenoso(Heroes heroi){
-        //
+    public double ataqueVenenoso(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*nivelArmadura*2;                
+        return dano;
     }
     
     @Override
-    public void ataqueFogo(Heroes heroi){
-        //
+    public double ataqueFogo(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueVoador(Heroes heroi){
-        //
+    public double ataqueVoador(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueExplosivo(Heroes heroi){
-        //
+    public double ataqueExplosivo(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueMaldicao(Heroes heroi){
-        //
+    public double ataqueMaldicao(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*nivelArmadura*3;                
+        return dano;
     }
     
     @Override
-    public void ataqueSobrenatural(Heroes heroi){
-        //
+    public double ataqueSobrenatural(){
+        double base = 0, mod = 0;
+        String tp_arma = this.tipoArma;
+        if(tp_arma.equals("Espada Longa")){
+            base = 5;
+        }
+        else{
+            base = 3;
+        }
+        
+        String hie = this.hierarquia;
+        if(hie.equals("Carniceiro")){
+            mod = 3;
+        }
+        if(hie.equals("Caçador")){
+            mod = 4;
+        }
+        if(hie.equals("Elevado")){
+            mod = 5;
+        }
+                
+        double dano = nivel*base*mod*nivelArmadura*10;                
+        return dano;
     }
     
     @Override
@@ -132,17 +325,17 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public void rejuvenescer(){
-        this.vida = this.vida;
+        this.vida += 0.3*this.vida;
     }
     
     @Override    
     public void soproVida(){
-        this.vida = this.vida;
+        this.vida += 0.5*this.vida;
     }
     
-    @Override    
+    @Override
     public void rajadaVida(){
-        this.vida = this.vida;
+        this.vida += this.vida;
     }
     
     @Override
@@ -175,7 +368,9 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public void tomarDanoEspecial(Heroes heroi){
-        if (heroi.getArma().equals("Arco")) {
+        if (heroi instanceof Mage) {
+            Mage mago = (Mage) heroi;
+            double dano = mago.ataqueCarregado();
             this.vida = this.vida - (60 - this.nivelArmadura);
             if (this.vida < 0) {
                 this.vida = 0;

@@ -4,13 +4,13 @@ import br.poo.cursed.npc.Heroes;
 
 public interface Ataque {
     
-    public void ataqueSimples(Heroes heroi);
+    public double ataqueSimples();
     
-    public void ataqueRapido(Heroes heroi);
+    public double ataqueRapido();
     
-    public void ataqueForte(Heroes heroi);
+    public double ataqueForte();
     
-    public void ataqueCarregado(Heroes heroi);
+    public double ataqueCarregado();
     
-    public void ataqueCounter(Heroes heroi);
+    public double ataqueCounter();
 }

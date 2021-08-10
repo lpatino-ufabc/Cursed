@@ -1,27 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.poo.cursed.npc;
 
-/**
- *
- * @author lpatinocardoso
- */
 public interface Especial {
     
-    public void ataqueVampirico();
+    public double ataqueVampirico();
     
-    public void ataqueVenenoso();
+    public double ataqueVenenoso();
     
-    public void ataqueFogo();
+    public double ataqueFogo();
     
-    public void ataqueVoador();
+    public double ataqueVoador();
     
-    public void ataqueExplosivo();
+    public double ataqueExplosivo();
     
-    public void ataqueMaldicao();
+    public double ataqueMaldicao();
     
-    public void ataqueSobrenatural();    
+    public double ataqueSobrenatural();    
 }

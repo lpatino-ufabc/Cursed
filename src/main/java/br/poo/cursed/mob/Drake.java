@@ -66,63 +66,75 @@ public class Drake extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public void ataqueSimples(Heroes heroi){
-        ;
+    public double ataqueSimples(){
+        double dano = nivel*nivelAlma;                
+        return dano;
     }
     
     @Override
-    public void ataqueRapido(Heroes heroi){
-        //
+    public double ataqueRapido(){
+        double dano = nivel*nivelAlma*0.75;
+        return dano;
     }
     
     @Override
-    public void ataqueForte(Heroes heroi){
-        //
+    public double ataqueForte(){
+        double dano = nivel*nivelAlma*1.5;
+        return dano;
     }
     
     @Override
-    public void ataqueCarregado(Heroes heroi){
-        //
+    public double ataqueCarregado(){
+        double dano = nivel*nivelAlma*2.5;
+        return dano;
     }
     
     @Override
-    public void ataqueCounter(Heroes heroi){
-        //
+    public double ataqueCounter(){
+        double dano = nivel*nivelArmadura*2.5;
+        return dano;
     }
     
     @Override
-    public void ataqueVampirico(Heroes heroi){
-        //
+    public double ataqueVampirico(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueVenenoso(Heroes heroi){
-        //
+    public double ataqueVenenoso(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueFogo(Heroes heroi){
-        //
+    public double ataqueFogo(){
+        double dano = nivel*nivelAlma*10;
+        return dano;
     }
     
     @Override
-    public void ataqueVoador(Heroes heroi){
-        //
+    public double ataqueVoador(){
+        double dano = nivel*nivelArmadura*6;
+        return dano;
     }
     
     @Override
-    public void ataqueExplosivo(Heroes heroi){
-        //
+    public double ataqueExplosivo(){
+        double dano = nivel*nivelAlma*15;
+        return dano;
     }
     
     @Override
-    public void ataqueMaldicao(Heroes heroi){
-        //
+    public double ataqueMaldicao(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueSobrenatural(Heroes heroi){
-        //
+    public double ataqueSobrenatural(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
@@ -174,7 +186,9 @@ public class Drake extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public void tomarDanoEspecial(Heroes heroi){
-        if (heroi.getArma().equals("Arco")) {
+        if (heroi instanceof Mage) {
+            Mage mago = (Mage) heroi;
+            double dano = mago.ataqueCarregado();
             this.vida = this.vida - (60 - this.nivelArmadura);
             if (this.vida < 0) {
                 this.vida = 0;

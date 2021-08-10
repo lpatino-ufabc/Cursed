@@ -11,13 +11,13 @@ package br.poo.cursed.npc;
  */
 public interface Ataque {
     
-    public void ataqueSimples();
+    public double ataqueSimples();
     
-    public void ataqueRapido();
+    public double ataqueRapido();
     
-    public void ataqueForte();
+    public double ataqueForte();
     
-    public void ataqueCarregado();
+    public double ataqueCarregado();
     
-    public void ataqueCounter();
+    public double ataqueCounter();
 }

@@ -4,17 +4,17 @@ import br.poo.cursed.npc.Heroes;
 
 public interface Especial {
     
-    public void ataqueVampirico(Heroes heroi);
+    public double ataqueVampirico();
     
-    public void ataqueVenenoso(Heroes heroi);
+    public double ataqueVenenoso();
     
-    public void ataqueFogo(Heroes heroi);
+    public double ataqueFogo();
     
-    public void ataqueVoador(Heroes heroi);
+    public double ataqueVoador();
     
-    public void ataqueExplosivo(Heroes heroi);
+    public double ataqueExplosivo();
     
-    public void ataqueMaldicao(Heroes heroi);
+    public double ataqueMaldicao();
     
-    public void ataqueSobrenatural(Heroes heroi);    
+    public double ataqueSobrenatural();    
 }

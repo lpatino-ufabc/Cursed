@@ -1,6 +1,6 @@
 package br.poo.cursed.mob;
 
-import br.poo.cursed.npc.Heroes;
+import br.poo.cursed.npc.*;
 
 public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     public Wyrm(double nivel, String nome, double vida, String tipoArmadura,
@@ -28,12 +28,12 @@ public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     @Override
     public double getVida(){
         return this.vida;
-    }   
+    }
     
     @Override
     public void setVida(double vida){
         this.vida = vida;
-    } 
+    }   
         
     @Override
     public String getTipoArmadura(){
@@ -66,63 +66,75 @@ public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public void ataqueSimples(Heroes heroi){
-        ;
+    public double ataqueSimples(){
+        double dano = nivel*nivelAlma;                
+        return dano;
     }
     
     @Override
-    public void ataqueRapido(Heroes heroi){
-        //
+    public double ataqueRapido(){
+        double dano = nivel*nivelAlma*0.55;
+        return dano;
     }
     
     @Override
-    public void ataqueForte(Heroes heroi){
-        //
+    public double ataqueForte(){
+        double dano = nivel*nivelAlma*1.15;
+        return dano;
     }
     
     @Override
-    public void ataqueCarregado(Heroes heroi){
-        //
+    public double ataqueCarregado(){
+        double dano = nivel*nivelAlma*1.55;
+        return dano;
     }
     
     @Override
-    public void ataqueCounter(Heroes heroi){
-        //
+    public double ataqueCounter(){
+        double dano = nivel*nivelArmadura*1.55;
+        return dano;
     }
     
     @Override
-    public void ataqueVampirico(Heroes heroi){
-        //
+    public double ataqueVampirico(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueVenenoso(Heroes heroi){
-        //
+    public double ataqueVenenoso(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueFogo(Heroes heroi){
-        //
+    public double ataqueFogo(){
+        double dano = nivel*nivelAlma*7;
+        return dano;
     }
     
     @Override
-    public void ataqueVoador(Heroes heroi){
-        //
+    public double ataqueVoador(){
+        double dano = nivel*nivelArmadura*3;
+        return dano;
     }
     
     @Override
-    public void ataqueExplosivo(Heroes heroi){
-        //
+    public double ataqueExplosivo(){
+        double dano = nivel*nivelAlma*8;
+        return dano;
     }
     
     @Override
-    public void ataqueMaldicao(Heroes heroi){
-        //
+    public double ataqueMaldicao(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
-    public void ataqueSobrenatural(Heroes heroi){
-        //
+    public double ataqueSobrenatural(){
+        double dano = 0;
+        return dano;
     }
     
     @Override
@@ -132,15 +144,14 @@ public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public void rejuvenescer(){
-        this.vida += 0.3*this.vida;
+        this.vida += 0.25*this.vida;
     }
     
     @Override    
     public void soproVida(){
-        this.vida += 0.5*this.vida;
+        this.vida += 0.45*this.vida;
     }
     
-    @Override    
     public void rajadaVida(){
         this.vida += this.vida;
     }
@@ -175,7 +186,9 @@ public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public void tomarDanoEspecial(Heroes heroi){
-        if (heroi.getArma().equals("Arco")) {
+        if (heroi instanceof Mage) {
+            Mage mago = (Mage) heroi;
+            double dano = mago.ataqueCarregado();
             this.vida = this.vida - (60 - this.nivelArmadura);
             if (this.vida < 0) {
                 this.vida = 0;

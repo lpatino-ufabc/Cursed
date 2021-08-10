@@ -42,7 +42,6 @@ public abstract class Heroes {
     
     public abstract String getArma();
     
-    public abstract void tomarDano(Inimigo inimigo);
+    public abstract void tomarDano(Inimigo inimigo, String opcao);
     
-    public abstract void tomarDanoEspecial(Inimigo inimigo);
 }
