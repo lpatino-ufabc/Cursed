@@ -3,9 +3,11 @@ package br.poo.cursed.npc;
 import br.poo.cursed.mob.*;
 
 public class Priest extends Heroes implements Ataque, Especial{
-    public Priest(double nivel, String nome, double vida, String tipoArmadura, 
+    public Priest(double nivel, String nome, double forca, double agilidade,
+            double intelecto, double vida, double fe, String tipoArmadura, 
             double nivelArmadura, String tipoArma) {
-        super(nivel, nome, vida, tipoArmadura, nivelArmadura, tipoArma);
+        super(nivel, nome, forca, agilidade, intelecto, vida, fe, tipoArmadura, 
+            nivelArmadura, tipoArma);
     }
     
     @Override
@@ -48,12 +50,12 @@ public class Priest extends Heroes implements Ataque, Especial{
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Massa simples")) {
-            base = 8;
+            base = this.fe*8;
         }
         if (tp_arma.equals("Martelo de Guerra")) {
-            base = 14;
+            base = this.fe*14;
         } else {
-            base = 25;
+            base = this.fe*25;
         }
 
         double dano = nivel * base;
@@ -65,12 +67,12 @@ public class Priest extends Heroes implements Ataque, Especial{
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Massa simples")) {
-            base = 8;
+            base = this.fe*8;
         }
         if (tp_arma.equals("Martelo de Guerra")) {
-            base = 14;
+            base = this.fe*14;
         } else {
-            base = 25;
+            base = this.fe*25;
         }
 
         double dano = nivel * base * 0.75;
@@ -82,12 +84,12 @@ public class Priest extends Heroes implements Ataque, Especial{
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Massa simples")) {
-            base = 8;
+            base = this.fe*8;
         }
         if (tp_arma.equals("Martelo de Guerra")) {
-            base = 14;
+            base = this.fe*14;
         } else {
-            base = 25;
+            base = this.fe*25;
         }
 
         double dano = nivel * base * 1.75;
@@ -99,12 +101,12 @@ public class Priest extends Heroes implements Ataque, Especial{
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Massa simples")) {
-            base = 8;
+            base = this.fe*8;
         }
         if (tp_arma.equals("Martelo de Guerra")) {
-            base = 14;
+            base = this.fe*14;
         } else {
-            base = 25;
+            base = this.fe*25;
         }
 
         double dano = nivel * base * 2.5;
@@ -116,12 +118,12 @@ public class Priest extends Heroes implements Ataque, Especial{
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Massa simples")) {
-            base = 8;
+            base = this.fe*8;
         }
         if (tp_arma.equals("Martelo de Guerra")) {
-            base = 14;
+            base = this.fe*14;
         } else {
-            base = 25;
+            base = this.fe*25;
         }
 
         double dano = nivel * base * nivelArmadura * 1.5;

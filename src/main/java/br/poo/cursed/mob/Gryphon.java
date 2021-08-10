@@ -257,60 +257,79 @@ public class Gryphon extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public void tomarDano(Heroes heroi){
-        if (heroi.getArma().equals("Arco")) {
-            this.vida = this.vida - (60 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
+    public void tomarDano(Heroes heroi, String opcao){
+        double dano = 0;
+        if(heroi instanceof Ranger){
+            Ranger legolas = (Ranger) heroi;
+            if (opcao.equals("Ataque Simples")) {
+                dano = legolas.ataqueSimples();
+            }
+            if (opcao.equals("Ataque Rapido")) {
+                dano = legolas.ataqueRapido();
+            }
+            if (opcao.equals("Ataque Forte")) {
+                dano = legolas.ataqueForte();
+            }
+            if (opcao.equals("Ataque Carregado")) {
+                dano = legolas.ataqueCarregado();
+            }
+            if (opcao.equals("Ataque Counter")) {
+                dano = legolas.ataqueCounter();
             }
         }
-        if (heroi.getArma().equals("Cajado")) {
-            this.vida = this.vida - (36 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
+        if(heroi instanceof Mage){
+            Mage gandalf = (Mage) heroi;
+            if (opcao.equals("Ataque Simples")) {
+                dano = gandalf.ataqueSimples();
+            }
+            if (opcao.equals("Ataque Rapido")) {
+                dano = gandalf.ataqueRapido();
+            }
+            if (opcao.equals("Ataque Forte")) {
+                dano = gandalf.ataqueForte();
+            }
+            if (opcao.equals("Ataque Carregado")) {
+                dano = gandalf.ataqueCarregado();
+            }
+            if (opcao.equals("Ataque Counter")) {
+                dano = gandalf.ataqueCounter();
             }
         }
-        if (heroi.getArma().equals("Massa de Guerra")) {
-            this.vida = this.vida - (70 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
+        if(heroi instanceof Priest){
+            Priest sunguy = (Priest) heroi;
+            if (opcao.equals("Ataque Simples")) {
+                dano = sunguy.ataqueSimples();
+            }
+            if (opcao.equals("Ataque Rapido")) {
+                dano = sunguy.ataqueRapido();
+            }
+            if (opcao.equals("Ataque Forte")) {
+                dano = sunguy.ataqueForte();
+            }
+            if (opcao.equals("Ataque Carregado")) {
+                dano = sunguy.ataqueCarregado();
+            }
+            if (opcao.equals("Ataque Counter")) {
+                dano = sunguy.ataqueCounter();
             }
         }
-        if (heroi.getArma().equals("Machado de Guerra")) {
-            this.vida = this.vida - (72 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
+        if(heroi instanceof Warrior){
+            Warrior ravel = (Warrior) heroi;
+            if (opcao.equals("Ataque Simples")) {
+                dano = ravel.ataqueSimples();
+            }
+            if (opcao.equals("Ataque Rapido")) {
+                dano = ravel.ataqueRapido();
+            }
+            if (opcao.equals("Ataque Forte")) {
+                dano = ravel.ataqueForte();
+            }
+            if (opcao.equals("Ataque Carregado")) {
+                dano = ravel.ataqueCarregado();
+            }
+            if (opcao.equals("Ataque Counter")) {
+                dano = ravel.ataqueCounter();
             }
         }
-    }
-    
-    @Override
-    public void tomarDanoEspecial(Heroes heroi){
-        if (heroi instanceof Mage) {
-            Mage mago = (Mage) heroi;
-            double dano = mago.ataqueCarregado();
-            this.vida = this.vida - (60 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
-            }
-        }
-        if (heroi.getArma().equals("Cajado")) {
-            this.vida = this.vida - (36 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
-            }
-        }
-        if (heroi.getArma().equals("Massa de Guerra")) {
-            this.vida = this.vida - (70 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
-            }
-        }
-        if (heroi.getArma().equals("Machado de Guerra")) {
-            this.vida = this.vida - (72 - this.nivelArmadura);
-            if (this.vida < 0) {
-                this.vida = 0;
-            }
-        }
-    }
+    }   
 }

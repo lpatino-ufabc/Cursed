@@ -51,8 +51,6 @@ public abstract class Inimigo {
     
     public abstract double getXP();
     
-    public abstract void tomarDano(Heroes heroi);
-    
-    public abstract void tomarDanoEspecial(Heroes heroi);
+    public abstract void tomarDano(Heroes heroi, String opcao);
 
 }

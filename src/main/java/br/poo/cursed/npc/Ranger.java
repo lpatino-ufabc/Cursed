@@ -10,9 +10,11 @@ import br.poo.cursed.mob.Zombies;
 
 public class Ranger extends Heroes implements Ataque, Especial {
 
-    public Ranger(double nivel, String nome, double vida, String tipoArmadura,
+    public Ranger(double nivel, String nome, double forca, double agilidade,
+            double intelecto, double vida, double fe, String tipoArmadura, 
             double nivelArmadura, String tipoArma) {
-        super(nivel, nome, vida, tipoArmadura, nivelArmadura, tipoArma);
+        super(nivel, nome, forca, agilidade, intelecto, vida, fe, tipoArmadura, 
+            nivelArmadura, tipoArma);
     }
 
     @Override
@@ -55,12 +57,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Arco Curto")) {
-            base = 9;
+            base = this.agilidade*9;
         }
         if (tp_arma.equals("Arco Composto")) {
-            base = 18;
+            base = this.agilidade*18;
         } else {
-            base = 30;
+            base = this.agilidade*30;
         }
 
         double dano = nivel * base;
@@ -72,12 +74,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Arco Curto")) {
-            base = 9;
+            base = this.agilidade*9;
         }
         if (tp_arma.equals("Arco Composto")) {
-            base = 18;
+            base = this.agilidade*18;
         } else {
-            base = 30;
+            base = this.agilidade*30;
         }
 
         double dano = nivel * base * 0.75;
@@ -89,12 +91,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Arco Curto")) {
-            base = 9;
+            base = this.agilidade*9;
         }
         if (tp_arma.equals("Arco Composto")) {
-            base = 18;
+            base = this.agilidade*18;
         } else {
-            base = 30;
+            base = this.agilidade*30;
         }
 
         double dano = nivel * base * 1.75;
@@ -106,12 +108,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Arco Curto")) {
-            base = 9;
+            base = this.agilidade*9;
         }
         if (tp_arma.equals("Arco Composto")) {
-            base = 18;
+            base = this.agilidade*18;
         } else {
-            base = 30;
+            base = this.agilidade*30;
         }
 
         double dano = nivel * base * 2.5;
@@ -123,12 +125,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
         double base = 0, mod = 0;
         String tp_arma = this.tipoArma;
         if (tp_arma.equals("Arco Curto")) {
-            base = 9;
+            base = this.agilidade*9;
         }
         if (tp_arma.equals("Arco Composto")) {
-            base = 18;
+            base = this.agilidade*18;
         } else {
-            base = 30;
+            base = this.agilidade*30;
         }
 
         double dano = nivel * base * nivelArmadura * 1.5;
