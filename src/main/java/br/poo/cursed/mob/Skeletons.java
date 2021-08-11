@@ -414,7 +414,6 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
                 dano = ravel.ataqueCounter();
             }
         }
-        System.out.println("Dano: "+ dano);
         if (this.vida > dano) {
             this.vida = this.vida - dano;
         } 

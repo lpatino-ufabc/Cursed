@@ -178,157 +178,157 @@ public class Priest extends Heroes implements Ataque, Especial{
         double dano = 0;
         if (inimigo instanceof Drake) {
             Drake drago = (Drake) inimigo;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = drago.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = drago.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = drago.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = drago.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = drago.ataqueCounter();
             }
-            if (opcao.equals("Ataque Fogo")) {
+            if (opcao.equals("6")) {
                 dano = drago.ataqueFogo();
             }
-            if (opcao.equals("Ataque Voador")) {
+            if (opcao.equals("7")) {
                 dano = drago.ataqueVoador();
             }
-            if (opcao.equals("Ataque Explosivo")) {
+            if (opcao.equals("8")) {
                 dano = drago.ataqueExplosivo();
             }
         }
         if (inimigo instanceof Wyrm) {
             Wyrm virme = (Wyrm) inimigo;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = virme.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = virme.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = virme.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = virme.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = virme.ataqueCounter();
             }
-            if (opcao.equals("Ataque Fogo")) {
+            if (opcao.equals("6")) {
                 dano = virme.ataqueFogo();
             }
-            if (opcao.equals("Ataque Voador")) {
+            if (opcao.equals("7")) {
                 dano = virme.ataqueVoador();
             }
-            if (opcao.equals("Ataque Explosivo")) {
+            if (opcao.equals("8")) {
                 dano = virme.ataqueExplosivo();
             }
         }
         if (inimigo instanceof Minotaur) {
             Minotaur minos = (Minotaur) inimigo;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = minos.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = minos.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = minos.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = minos.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = minos.ataqueCounter();
             }
         }
         if (inimigo instanceof Gryphon) {
             Gryphon arara = (Gryphon) inimigo;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = arara.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = arara.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = arara.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = arara.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = arara.ataqueCounter();
             }
         }
         if (inimigo instanceof Zombies) {
             Zombies necro = (Zombies) inimigo;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = necro.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = necro.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = necro.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = necro.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = necro.ataqueCounter();
             }
-            if (opcao.equals("Ataque Vampirico")) {
+            if (opcao.equals("6")) {
                 dano = necro.ataqueVampirico();
             }
-            if (opcao.equals("Ataque Venenoso")) {
+            if (opcao.equals("7")) {
                 dano = necro.ataqueVenenoso();
             }
-            if (opcao.equals("Ataque Amaldiçoado")) {
+            if (opcao.equals("8")) {
                 dano = necro.ataqueMaldicao();
             }
-            if (opcao.equals("Ataque Sobrenatural")) {
+            if (opcao.equals("9")) {
                 dano = necro.ataqueSobrenatural();
             }
         }
         if (inimigo instanceof Skeletons) {
             Skeletons osso = (Skeletons) inimigo;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = osso.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = osso.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = osso.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = osso.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = osso.ataqueCounter();
             }
-            if (opcao.equals("Ataque Vampirico")) {
+            if (opcao.equals("6")) {
                 dano = osso.ataqueVampirico();
             }
-            if (opcao.equals("Ataque Venenoso")) {
+            if (opcao.equals("7")) {
                 dano = osso.ataqueVenenoso();
             }
-            if (opcao.equals("Ataque Amaldiçoado")) {
+            if (opcao.equals("8")) {
                 dano = osso.ataqueMaldicao();
             }
-            if (opcao.equals("Ataque Sobrenatural")) {
+            if (opcao.equals("9")) {
                 dano = osso.ataqueSobrenatural();
             }
-        }
+        }    
         
         if (this.vida > dano) {
-            this.vida -= dano;
+            this.vida = this.vida - dano;
         } else {
             this.vida = 0;
         }

@@ -262,79 +262,80 @@ public class Minotaur extends Inimigo implements Ataque, Especial, Curar{
         double dano = 0;
         if(heroi instanceof Ranger){
             Ranger legolas = (Ranger) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = legolas.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = legolas.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = legolas.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = legolas.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = legolas.ataqueCounter();
             }
         }
         if(heroi instanceof Mage){
             Mage gandalf = (Mage) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = gandalf.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = gandalf.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = gandalf.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = gandalf.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = gandalf.ataqueCounter();
             }
         }
         if(heroi instanceof Priest){
             Priest sunguy = (Priest) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = sunguy.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = sunguy.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = sunguy.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = sunguy.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = sunguy.ataqueCounter();
             }
         }
         if(heroi instanceof Warrior){
             Warrior ravel = (Warrior) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = ravel.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = ravel.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = ravel.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = ravel.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = ravel.ataqueCounter();
             }
-        }        
+        }
         if (this.vida > dano) {
-            this.vida -= dano;
-        } else {
+            this.vida = this.vida - dano;
+        } 
+        if (this.vida <= dano){
             this.vida = 0;
         }
     }
