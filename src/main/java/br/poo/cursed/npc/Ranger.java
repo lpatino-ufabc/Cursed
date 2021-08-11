@@ -331,7 +331,7 @@ public class Ranger extends Heroes implements Ataque, Especial {
             if (opcao.equals("Ataque Sobrenatural")) {
                 dano = osso.ataqueSobrenatural();
             }
-        }
+        }    
         
         if (this.vida > dano) {
             this.vida -= dano;

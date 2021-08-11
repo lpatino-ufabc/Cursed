@@ -413,6 +413,11 @@ public class Zombies extends Inimigo implements Ataque, Especial, Curar{
             if (opcao.equals("Ataque Counter")) {
                 dano = ravel.ataqueCounter();
             }
+        }        
+        if (this.vida > dano) {
+            this.vida -= dano;
+        } else {
+            this.vida = 0;
         }
-    }   
+    }
 }

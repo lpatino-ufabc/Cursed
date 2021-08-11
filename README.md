@@ -24,3 +24,6 @@ v.1.3:
 
 v.1.4:
 	* Implementação de controle de XP para nível de herói
+
+v.1.5:
+	* Implementação da main versão alpha
