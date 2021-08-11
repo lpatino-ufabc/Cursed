@@ -114,7 +114,7 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
             mod = 6;
         }
                 
-        double dano = nivel*base*mod*075;                
+        double dano = nivel*base*mod*0.75;                
         return dano;
     }
     

@@ -114,7 +114,7 @@ public class Zombies extends Inimigo implements Ataque, Especial, Curar{
             mod = 5;
         }
                 
-        double dano = nivel*base*mod*075;                
+        double dano = nivel*base*mod*0.75;                
         return dano;
     }
     

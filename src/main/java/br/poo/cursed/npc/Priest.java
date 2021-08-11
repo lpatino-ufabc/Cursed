@@ -2,7 +2,7 @@ package br.poo.cursed.npc;
 
 import br.poo.cursed.mob.*;
 
-public class Priest extends Heroes implements Ataque, Especial{
+public class Priest extends Heroes implements Ataque, Especial, Curar{
     
     public Priest(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
@@ -171,6 +171,26 @@ public class Priest extends Heroes implements Ataque, Especial{
     public double ataqueSobrenatural() {
         double dano = 0;
         return dano;
+    }
+    
+    @Override
+    public void curativo(){
+        this.vida = this.vida + 0.01*this.vida*this.intelecto*this.fe;
+    }
+    
+    @Override
+    public void rejuvenescer(){
+        this.vida = this.vida + 0.03*this.vida*this.intelecto*this.fe;
+    }
+    
+    @Override    
+    public void soproVida(){
+        this.vida = this.vida + 0.05*this.vida*this.intelecto*this.fe;
+    }
+    
+    @Override
+    public void rajadaVida(){
+        this.vida = this.vida + this.vida;
     }
 
     @Override
