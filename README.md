@@ -27,3 +27,6 @@ v.1.4:
 
 v.1.5:
 	* Implementação da main versão alpha
+
+v.1.6r:
+	* Versão com uma fase básica e um inimigo básico.

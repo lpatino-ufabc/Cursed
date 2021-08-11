@@ -68,10 +68,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueSimples(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -79,13 +79,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod;                
@@ -94,10 +94,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueRapido(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -105,13 +105,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*075;                
@@ -120,10 +120,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueForte(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -131,13 +131,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*1.5;                
@@ -146,10 +146,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueCarregado(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -157,13 +157,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*2;                
@@ -172,10 +172,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueCounter(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -183,13 +183,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*nivelArmadura;                
@@ -198,10 +198,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueVampirico(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -209,13 +209,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
         
         this.curativo();
@@ -225,10 +225,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueVenenoso(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -236,13 +236,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*nivelArmadura*2;                
@@ -269,10 +269,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueMaldicao(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -280,13 +280,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*nivelArmadura*3;                
@@ -295,10 +295,10 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
     
     @Override
     public double ataqueSobrenatural(){
-        double base = 0, mod = 0;
+        double base = 3, mod = 3;
         String tp_arma = this.tipoArma;
         if(tp_arma.equals("Espada Longa")){
-            base = 5;
+            base = 10;
         }
         else{
             base = 3;
@@ -306,13 +306,13 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         
         String hie = this.hierarquia;
         if(hie.equals("Carniceiro")){
-            mod = 3;
-        }
-        if(hie.equals("Caçador")){
             mod = 4;
         }
-        if(hie.equals("Elevado")){
+        if(hie.equals("Caçador")){
             mod = 5;
+        }
+        if(hie.equals("Elevado")){
+            mod = 6;
         }
                 
         double dano = nivel*base*mod*nivelArmadura*10;                
@@ -344,79 +344,81 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         double dano = 0;
         if(heroi instanceof Ranger){
             Ranger legolas = (Ranger) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = legolas.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = legolas.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = legolas.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = legolas.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = legolas.ataqueCounter();
             }
         }
         if(heroi instanceof Mage){
             Mage gandalf = (Mage) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = gandalf.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = gandalf.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = gandalf.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = gandalf.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = gandalf.ataqueCounter();
             }
         }
         if(heroi instanceof Priest){
             Priest sunguy = (Priest) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = sunguy.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = sunguy.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = sunguy.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = sunguy.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = sunguy.ataqueCounter();
             }
         }
         if(heroi instanceof Warrior){
             Warrior ravel = (Warrior) heroi;
-            if (opcao.equals("Ataque Simples")) {
+            if (opcao.equals("1")) {
                 dano = ravel.ataqueSimples();
             }
-            if (opcao.equals("Ataque Rapido")) {
+            if (opcao.equals("2")) {
                 dano = ravel.ataqueRapido();
             }
-            if (opcao.equals("Ataque Forte")) {
+            if (opcao.equals("3")) {
                 dano = ravel.ataqueForte();
             }
-            if (opcao.equals("Ataque Carregado")) {
+            if (opcao.equals("4")) {
                 dano = ravel.ataqueCarregado();
             }
-            if (opcao.equals("Ataque Counter")) {
+            if (opcao.equals("5")) {
                 dano = ravel.ataqueCounter();
             }
-        }        
+        }
+        System.out.println("Dano: "+ dano);
         if (this.vida > dano) {
-            this.vida -= dano;
-        } else {
+            this.vida = this.vida - dano;
+        } 
+        if (this.vida <= dano){
             this.vida = 0;
         }
     }
