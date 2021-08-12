@@ -2,7 +2,7 @@ package br.poo.cursed.mob;
 
 import br.poo.cursed.npc.*;
 
-public class Drake extends Inimigo implements Ataque, Especial, Curar{
+public class Drake extends Inimigo implements Ataque, EspecialDragao, Curar{
     
     public Drake(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
@@ -97,18 +97,6 @@ public class Drake extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public double ataqueVampirico(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueVenenoso(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
     public double ataqueFogo(){
         double dano = nivel*nivelAlma*10;
         return dano;
@@ -117,24 +105,6 @@ public class Drake extends Inimigo implements Ataque, Especial, Curar{
     @Override
     public double ataqueVoador(){
         double dano = nivel*nivelArmadura*6;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueExplosivo(){
-        double dano = nivel*nivelAlma*15;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueMaldicao(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueSobrenatural(){
-        double dano = 0;
         return dano;
     }
     

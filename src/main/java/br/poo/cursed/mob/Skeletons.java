@@ -2,7 +2,7 @@ package br.poo.cursed.mob;
 
 import br.poo.cursed.npc.*;
 
-public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
+public class Skeletons extends Inimigo implements Ataque, EspecialUndead, Curar{
     
     public Skeletons(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
@@ -246,76 +246,6 @@ public class Skeletons extends Inimigo implements Ataque, Especial, Curar{
         }
                 
         double dano = nivel*base*mod*nivelArmadura*2;                
-        return dano;
-    }
-    
-    @Override
-    public double ataqueFogo(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueVoador(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueExplosivo(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueMaldicao(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*nivelArmadura*3;                
-        return dano;
-    }
-    
-    @Override
-    public double ataqueSobrenatural(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*nivelArmadura*10;                
         return dano;
     }
     

@@ -2,7 +2,7 @@ package br.poo.cursed.mob;
 
 import br.poo.cursed.npc.*;
 
-public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
+public class Wyrm extends Inimigo implements Ataque, EspecialDragao, Curar{
     
     public Wyrm(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
@@ -97,18 +97,6 @@ public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public double ataqueVampirico(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueVenenoso(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
     public double ataqueFogo(){
         double dano = nivel*nivelAlma*7;
         return dano;
@@ -117,24 +105,6 @@ public class Wyrm extends Inimigo implements Ataque, Especial, Curar{
     @Override
     public double ataqueVoador(){
         double dano = nivel*nivelArmadura*3;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueExplosivo(){
-        double dano = nivel*nivelAlma*8;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueMaldicao(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueSobrenatural(){
-        double dano = 0;
         return dano;
     }
     

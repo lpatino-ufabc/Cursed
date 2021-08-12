@@ -2,7 +2,7 @@ package br.poo.cursed.mob;
 
 import br.poo.cursed.npc.*;
 
-public class Minotaur extends Inimigo implements Ataque, Especial, Curar{
+public class Minotaur extends Inimigo implements Ataque, EspecialMitico, Curar{
     
     public Minotaur(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
@@ -197,44 +197,14 @@ public class Minotaur extends Inimigo implements Ataque, Especial, Curar{
     }
     
     @Override
-    public double ataqueVampirico(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueVenenoso(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueFogo(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueVoador(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
-    public double ataqueExplosivo(){
-        double dano = 0;
-        return dano;
-    }
-    
-    @Override
     public double ataqueMaldicao(){
-        double dano = 0;
+        double dano = 10*this.nivel*this.nivelAlma;
         return dano;
     }
     
     @Override
     public double ataqueSobrenatural(){
-        double dano = 0;
+        double dano = 20*this.nivel*this.nivelAlma;
         return dano;
     }
     

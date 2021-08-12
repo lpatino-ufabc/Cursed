@@ -8,7 +8,7 @@ import br.poo.cursed.mob.Skeletons;
 import br.poo.cursed.mob.Wyrm;
 import br.poo.cursed.mob.Zombies;
 
-public class Ranger extends Heroes implements Ataque, Especial {
+public class Ranger extends Heroes implements Ataque, EspecialRanged {
 
     public Ranger(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
@@ -138,43 +138,13 @@ public class Ranger extends Heroes implements Ataque, Especial {
     }
 
     @Override
-    public double ataqueVampirico() {
+    public double misseisMagicos() {
         double dano = 0;
         return dano;
     }
 
     @Override
-    public double ataqueVenenoso() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public double ataqueFogo() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public double ataqueVoador() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public double ataqueExplosivo() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public double ataqueMaldicao() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public double ataqueSobrenatural() {
+    public double armaMagica() {
         double dano = 0;
         return dano;
     }
@@ -205,9 +175,6 @@ public class Ranger extends Heroes implements Ataque, Especial {
             if (opcao.equals("7")) {
                 dano = drago.ataqueVoador();
             }
-            if (opcao.equals("8")) {
-                dano = drago.ataqueExplosivo();
-            }
         }
         if (inimigo instanceof Wyrm) {
             Wyrm virme = (Wyrm) inimigo;
@@ -232,9 +199,6 @@ public class Ranger extends Heroes implements Ataque, Especial {
             if (opcao.equals("7")) {
                 dano = virme.ataqueVoador();
             }
-            if (opcao.equals("8")) {
-                dano = virme.ataqueExplosivo();
-            }
         }
         if (inimigo instanceof Minotaur) {
             Minotaur minos = (Minotaur) inimigo;
@@ -253,6 +217,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
             if (opcao.equals("5")) {
                 dano = minos.ataqueCounter();
             }
+            if (opcao.equals("6")) {
+                dano = minos.ataqueMaldicao();
+            }
+            if (opcao.equals("7")) {
+                dano = minos.ataqueSobrenatural();
+            }
         }
         if (inimigo instanceof Gryphon) {
             Gryphon arara = (Gryphon) inimigo;
@@ -270,6 +240,12 @@ public class Ranger extends Heroes implements Ataque, Especial {
             }
             if (opcao.equals("5")) {
                 dano = arara.ataqueCounter();
+            }
+            if (opcao.equals("6")) {
+                dano = arara.ataqueMaldicao();
+            }
+            if (opcao.equals("7")) {
+                dano = arara.ataqueSobrenatural();
             }
         }
         if (inimigo instanceof Zombies) {
@@ -295,12 +271,6 @@ public class Ranger extends Heroes implements Ataque, Especial {
             if (opcao.equals("7")) {
                 dano = necro.ataqueVenenoso();
             }
-            if (opcao.equals("8")) {
-                dano = necro.ataqueMaldicao();
-            }
-            if (opcao.equals("9")) {
-                dano = necro.ataqueSobrenatural();
-            }
         }
         if (inimigo instanceof Skeletons) {
             Skeletons osso = (Skeletons) inimigo;
@@ -324,12 +294,6 @@ public class Ranger extends Heroes implements Ataque, Especial {
             }
             if (opcao.equals("7")) {
                 dano = osso.ataqueVenenoso();
-            }
-            if (opcao.equals("8")) {
-                dano = osso.ataqueMaldicao();
-            }
-            if (opcao.equals("9")) {
-                dano = osso.ataqueSobrenatural();
             }
         }    
         
