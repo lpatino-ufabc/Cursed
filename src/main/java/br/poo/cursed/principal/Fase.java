@@ -2,6 +2,7 @@ package br.poo.cursed.principal;
 
 import br.poo.cursed.mob.*;
 import br.poo.cursed.npc.*;
+import br.poo.cursed.implementaespecial.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -16,17 +17,23 @@ public class Fase {
                         
         entrada = new Scanner(System.in);
         Skeletons sk1 = new Skeletons(1.0,"Ossada Viva",3000.0,"Armadura Podre",3.0,
-                    "Carniceiro",1.0,"","Espada Longa",300.0);            
+                    "Carniceiro",1.0,"","Espada Longa",300.0, new especialUndead(),
+                    new curaMob(), new golpeUndead());            
         Zombies zo1 = new Zombies(1.0,"Corpo Ambulante",5000.0,"Armadura Podre",3.0,
-                "Carniceiro",1.0,"","Espada Longa",400.0);
+                "Carniceiro",1.0,"","Espada Longa",400.0, new especialUndead(),
+                new curaMob(), new golpeUndead());
         Gryphon gr1 = new Gryphon(1.0,"Grifo Prateado",7000.0,"Penas de Prata",8.0,
-                "",1.0,"Zeus","Garra de Prata",800.0);
+                "",1.0,"Zeus","Garra de Prata",800.0, new especialMitico(),
+                new curaMob(), new golpeMitico());
         Minotaur mn1 = new Minotaur(1.0,"Minotauro",8000.0,"Couraça Dura",9.0,
-                "",1.0,"Ares","Machado de Guerra",900.0);
+                "",1.0,"Ares","Machado de Guerra",900.0, new especialMitico(),
+                new curaMob(), new golpeMitico());
         Wyrm wm1 = new Wyrm(1.0,"Dragonete",6000.0,"Escamas novas",8.0,
-                "",10.0,"","",600.0);
+                "",10.0,"","",600.0, new especialDragao(),
+                new curaMob(), new golpeDragao());
         Drake dk1 = new Drake(1.0,"Dragao de Fogo",10000.0,"Escamas Antigas",18.0,
-                "",30.0,"","",1000.0);
+                "",30.0,"","",1000.0, new especialDragao(),
+                new curaMob(), new golpeDragao());
         
         while (opt_menu != 0) {
 
@@ -35,7 +42,8 @@ public class Fase {
             switch (opt_menu) {
                 case 1: {
                     Ranger heroi = new Ranger(1.0,"m1",8.0,16.0,8.0,200.0,6.0,
-                            "Armadura de Couro",8.0,"Arco Curto",500.0,0.0);
+                            "Armadura de Couro",8.0,"Arco Curto",500.0,0.0,
+                            new especialRanged(), new curaNPC(), new golpeRanged());
                     System.out.println("O elfo prepara o arco para mais uma caçada.");
                     System.out.println("Você sai da cidade, com seus pertences em rumo ao ");
                     System.out.println("deconhecido, com a certeza de que não há volta. Você");
@@ -169,7 +177,8 @@ public class Fase {
                 }
                 case 2: {
                     Mage heroi = new Mage(1.0,"r1",8.0,8.0,26.0,180.0,6.0,
-                            "Robe",3.0,"Cajado",500.0,0.0);
+                            "Robe",3.0,"Cajado",500.0,0.0,
+                            new especialRanged(), new curaNPC(), new golpeRanged());
                     System.out.println("O mago prepara seus tomos para mais uma aventura.");
                     System.out.println("O elfo prepara o arco para mais uma caçada.");
                     System.out.println("Você sai da cidade, com seus pertences em rumo ao ");
@@ -304,7 +313,8 @@ public class Fase {
                 }
                 case 3: {
                     Priest heroi = new Priest(1.0,"p1",8.0,6.0,8.0,220.0,16.0,
-                            "Armadura de Placa",12.0,"Massa simples",500.0,0.0);
+                            "Armadura de Placa",12.0,"Massa simples",500.0,0.0,
+                            new especialMeele(), new curaNPC(), new golpeMeele());
                     System.out.println("O sacerdote fala com os deuses e segue para o desconhecido.");
                     System.out.println("O elfo prepara o arco para mais uma caçada.");
                     System.out.println("Você sai da cidade, com seus pertences em rumo ao ");
@@ -439,7 +449,8 @@ public class Fase {
                 }
                 case 4: {
                     Warrior heroi = new Warrior(1.0,"w1",18.0,6.0,10.0,300.0,4.0,
-                            "Armadura Completa",15.0,"Espada Longa",500.0,0.0);
+                            "Armadura Completa",15.0,"Espada Longa",500.0,0.0,
+                            new especialMeele(), new curaNPC(), new golpeMeele());
                     System.out.println("O guerreiro vai em busca de glória e sangue.");
                     System.out.println("O elfo prepara o arco para mais uma caçada.");
                     System.out.println("Você sai da cidade, com seus pertences em rumo ao ");
@@ -617,32 +628,5 @@ public class Fase {
         System.out.println("5 - Contra ataque");
 
         return Integer.parseInt(entrada.nextLine());
-    }
-    
-    private static void faseFloresta(Heroes heroi){
-        int fase1 = -1;
-        int reto = 0, esquerda = 0, direita = 0, lutas = 0;
-        double skcheckVida = 0.0, zbcheckVida = 0.0, heroVida = 0.0;
-        Skeletons sk1 = new Skeletons(1.0,"Ossada Viva",30,"Armadura Podre",3.0,
-                    "Carniceiro",0.0,"","Espada Longa",300);            
-        Zombies zo1 = new Zombies(1.0,"Corpo Ambulante",50,"Armadura Podre",3.0,
-                "Carniceiro",0.0,"","Espada Longa",400);
-        
-        if(heroi instanceof Ranger){
-            Ranger perso = new Ranger(1.0,"m1",8.0,16.0,8.0,200.0,6.0,
-                            "Armadura de Couro",8.0,"Arco Curto",500.0,0.0);
-        }
-        if(heroi instanceof Mage){
-            Mage perso = new Mage(1.0,"r1",8.0,8.0,26.0,180.0,6.0,
-                            "Robe",3.0,"Cajado",500.0,0.0);
-        }
-        if(heroi instanceof Priest){
-            Priest perso = new Priest(1.0,"p1",8.0,6.0,8.0,220.0,16.0,
-                            "Armadura de Placa",12.0,"Massa simples",500.0,0.0);
-        }
-        else{
-            Warrior perso = new Warrior(1.0,"w1",18.0,6.0,10.0,300.0,4.0,
-                            "Armadura Completa",15.0,"Espada Longa",500.0,0.0);
-        }           
     }
 }

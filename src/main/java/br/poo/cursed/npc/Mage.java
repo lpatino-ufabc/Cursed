@@ -1,14 +1,25 @@
 package br.poo.cursed.npc;
 
+import br.poo.cursed.implementaespecial.Cura;
+import br.poo.cursed.implementaespecial.Especial;
+import br.poo.cursed.implementaespecial.Golpe;
 import br.poo.cursed.mob.*;
 
-public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
+public class Mage extends Heroes{
+    
+    private Especial especial;
+    private Cura cura;
+    private Golpe golpe;
     
     public Mage(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
-            double nivelArmadura, String tipoArma, double XP, double lvlXP) {
+            double nivelArmadura, String tipoArma, double XP, double lvlXP, 
+            Especial especial, Cura cura, Golpe golpe) {
         super(nivel, nome, forca, agilidade, intelecto, vida, fe, tipoArmadura, 
             nivelArmadura, tipoArma, XP, lvlXP);
+        this.especial = especial;
+        this.cura = cura;
+        this.golpe = golpe;
     }
     
     @Override
@@ -46,121 +57,41 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
         return this.tipoArma;
     }
 
-    @Override
-    public double ataqueSimples() {
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Varinha")) {
-            base = this.intelecto*10;
-        }
-        if (tp_arma.equals("Cajado")) {
-            base = this.intelecto*16;
-        } else {
-            base = this.intelecto*30;
-        }
-
-        double dano = nivel * base;
-        return dano;
-    }
-
-    @Override
-    public double ataqueRapido() {
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Varinha")) {
-            base = this.intelecto*10;
-        }
-        if (tp_arma.equals("Cajado")) {
-            base = this.intelecto*16;
-        } else {
-            base = this.intelecto*30;
-        }
-
-        double dano = nivel * base * 0.75;
-        return dano;
-    }
-
-    @Override
-    public double ataqueForte() {
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Varinha")) {
-            base = this.intelecto*10;
-        }
-        if (tp_arma.equals("Cajado")) {
-            base = this.intelecto*16;
-        } else {
-            base = this.intelecto*30;
-        }
-
-        double dano = nivel * base * 1.75;
-        return dano;
-    }
-
-    @Override
-    public double ataqueCarregado() {
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Varinha")) {
-            base = this.intelecto*10;
-        }
-        if (tp_arma.equals("Cajado")) {
-            base = this.intelecto*16;
-        } else {
-            base = this.intelecto*30;
-        }
-
-        double dano = nivel * base * 2.5;
-        return dano;
-    }
-
-    @Override
-    public double ataqueCounter() {
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Varinha")) {
-            base = this.intelecto*10;
-        }
-        if (tp_arma.equals("Cajado")) {
-            base = this.intelecto*16;
-        } else {
-            base = this.intelecto*30;
-        }
-
-        double dano = nivel * base * nivelArmadura * 1.5;
-        return dano;
-    }
-
-    @Override
-    public double misseisMagicos() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public double armaMagica() {
-        double dano = 0;
-        return dano;
-    }
-
-    @Override
-    public void curativo(){
-        this.vida = this.vida + 0.01*this.vida*this.intelecto;
+    public double ataqueSimples(){
+        return golpe.gSimples(intelecto, agilidade, tipoArma, tipoArmadura);
     }
     
-    @Override
-    public void rejuvenescer(){
-        this.vida = this.vida + 0.03*this.vida*this.intelecto;
+    public double ataqueRapido(){
+        return golpe.gRapido(intelecto, agilidade, tipoArma, tipoArmadura);
     }
     
-    @Override    
-    public void soproVida(){
-        this.vida = this.vida + 0.05*this.vida*this.intelecto;
+    public double ataqueForte(){
+        return golpe.gForte(intelecto, agilidade, tipoArma, tipoArmadura);
     }
     
-    @Override
-    public void rajadaVida(){
-        this.vida = this.vida + this.vida;
+    public double ataqueCarregado(){
+        return golpe.gCarregado(intelecto, agilidade, tipoArma, tipoArmadura);
+    }
+    
+    public double ataqueCounter(){
+        return golpe.gCounter(intelecto, agilidade, tipoArma, tipoArmadura);
+    }
+    
+    public double especialLeve(double agilidade, double intelecto){
+        return especial.especialMagico(agilidade, intelecto);
+    }
+    
+    public double especialPesado(double agilidade, double intelecto){
+        return especial.especialUltimate(agilidade, intelecto);
+    }
+    
+    public double revigorar(double vida){
+        return cura.curativo(vida);
+    }
+    
+    
+    public double rejuvenescer(double vida){
+        return cura.soproVida(vida);
     }
 
     @Override
@@ -184,10 +115,10 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
                 dano = drago.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = drago.ataqueFogo();
+                dano = drago.especialLeve(drago.getAlma(), drago.getVida());
             }
             if (opcao.equals("7")) {
-                dano = drago.ataqueVoador();
+                dano = drago.especialPesado(drago.getAlma(), drago.getVida());
             }
         }
         if (inimigo instanceof Wyrm) {
@@ -208,10 +139,10 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
                 dano = virme.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = virme.ataqueFogo();
+                dano = virme.especialLeve(virme.getAlma(), virme.getVida());
             }
             if (opcao.equals("7")) {
-                dano = virme.ataqueVoador();
+                dano = virme.especialPesado(virme.getAlma(), virme.getVida());
             }
         }
         if (inimigo instanceof Minotaur) {
@@ -232,10 +163,10 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
                 dano = minos.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = minos.ataqueMaldicao();
+                dano = minos.especialLeve(minos.getAlma(), minos.getNivelArmadura());
             }
             if (opcao.equals("7")) {
-                dano = minos.ataqueSobrenatural();
+                dano = minos.especialPesado(minos.getAlma(), minos.getNivelArmadura());
             }
         }
         if (inimigo instanceof Gryphon) {
@@ -256,10 +187,10 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
                 dano = arara.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = arara.ataqueMaldicao();
+                dano = arara.especialLeve(arara.getAlma(), arara.getNivelArmadura());
             }
             if (opcao.equals("7")) {
-                dano = arara.ataqueSobrenatural();
+                dano = arara.especialPesado(arara.getAlma(), arara.getNivelArmadura());
             }
         }
         if (inimigo instanceof Zombies) {
@@ -280,10 +211,10 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
                 dano = necro.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = necro.ataqueVampirico();
+                dano = necro.especialLeve(necro.getAlma(), necro.getVida());
             }
             if (opcao.equals("7")) {
-                dano = necro.ataqueVenenoso();
+                dano = necro.especialPesado(necro.getAlma(), necro.getVida());
             }
         }
         if (inimigo instanceof Skeletons) {
@@ -304,10 +235,10 @@ public class Mage extends Heroes implements Ataque, EspecialRanged, Curar{
                 dano = osso.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = osso.ataqueVampirico();
+                dano = osso.especialLeve(osso.getAlma(), osso.getVida());
             }
             if (opcao.equals("7")) {
-                dano = osso.ataqueVenenoso();
+                dano = osso.especialPesado(osso.getAlma(), osso.getVida());
             }
         }    
         

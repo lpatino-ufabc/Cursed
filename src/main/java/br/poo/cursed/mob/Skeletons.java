@@ -1,14 +1,25 @@
 package br.poo.cursed.mob;
 
+import br.poo.cursed.implementaespecial.Cura;
+import br.poo.cursed.implementaespecial.Especial;
+import br.poo.cursed.implementaespecial.Golpe;
 import br.poo.cursed.npc.*;
 
-public class Skeletons extends Inimigo implements Ataque, EspecialUndead, Curar{
+public class Skeletons extends Inimigo{
+    
+    private Especial especial;
+    private Cura cura;
+    private Golpe golpe;
     
     public Skeletons(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
-            String tipoDivindade, String tipoArma, double XP) {
+            String tipoDivindade, String tipoArma, double XP, Especial especial,
+            Cura cura, Golpe golpe) {
         super(nivel, nome, vida, tipoArmadura, nivelArmadura, hierarquia,
               nivelAlma, tipoDivindade, tipoArma, XP);
+        this.especial = especial;
+        this.cura = cura;
+        this.golpe = golpe;
     }
     
     @Override
@@ -66,207 +77,41 @@ public class Skeletons extends Inimigo implements Ataque, EspecialUndead, Curar{
         return this.XP;
     }
     
-    @Override
     public double ataqueSimples(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod;                
-        return dano;
+        return golpe.gSimples(nivel, nivelAlma, tipoArma,  hierarquia);
     }
     
-    @Override
     public double ataqueRapido(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*0.75;                
-        return dano;
+        return golpe.gRapido(nivel, nivelAlma, tipoArma,  hierarquia);
     }
     
-    @Override
     public double ataqueForte(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*1.5;                
-        return dano;
+        return golpe.gForte(nivel, nivelAlma, tipoArma,  hierarquia);
     }
     
-    @Override
     public double ataqueCarregado(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*2;                
-        return dano;
+        return golpe.gCarregado(nivel, nivelAlma, tipoArma,  hierarquia);
     }
     
-    @Override
     public double ataqueCounter(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*nivelArmadura;                
-        return dano;
+        return golpe.gCounter(nivel, nivelArmadura, tipoArma,  hierarquia);
     }
     
-    @Override
-    public double ataqueVampirico(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-        
-        this.curativo();
-        double dano = nivel*base*mod*nivelArmadura;        
-        return dano;
+    public double especialLeve(double alma, double vida){
+        return especial.especialMagico(alma, vida);
     }
     
-    @Override
-    public double ataqueVenenoso(){
-        double base = 3, mod = 3;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Espada Longa")){
-            base = 10;
-        }
-        else{
-            base = 3;
-        }
-        
-        String hie = this.hierarquia;
-        if(hie.equals("Carniceiro")){
-            mod = 4;
-        }
-        if(hie.equals("Caçador")){
-            mod = 5;
-        }
-        if(hie.equals("Elevado")){
-            mod = 6;
-        }
-                
-        double dano = nivel*base*mod*nivelArmadura*2;                
-        return dano;
+    public double especialPesado(double alma, double vida){
+        return especial.especialUltimate(alma, vida);
     }
     
-    @Override
-    public void curativo(){
-        this.vida += 0.1*this.vida;
+    public double revigorar(double vida){
+        return cura.curativo(vida);
     }
     
-    @Override
-    public void rejuvenescer(){
-        this.vida += 0.3*this.vida;
-    }
     
-    @Override    
-    public void soproVida(){
-        this.vida += 0.5*this.vida;
-    }
-    
-    @Override
-    public void rajadaVida(){
-        this.vida += this.vida;
+    public double rejuvenescer(double vida){
+        return cura.soproVida(vida);
     }
     
     @Override

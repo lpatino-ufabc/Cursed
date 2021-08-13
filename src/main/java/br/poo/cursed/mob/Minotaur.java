@@ -1,14 +1,25 @@
 package br.poo.cursed.mob;
 
+import br.poo.cursed.implementaespecial.Cura;
+import br.poo.cursed.implementaespecial.Especial;
+import br.poo.cursed.implementaespecial.Golpe;
 import br.poo.cursed.npc.*;
 
-public class Minotaur extends Inimigo implements Ataque, EspecialMitico, Curar{
+public class Minotaur extends Inimigo{
+    
+    private Especial especial;
+    private Cura cura;
+    private Golpe golpe;
     
     public Minotaur(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
-            String tipoDivindade, String tipoArma, double XP) {
+            String tipoDivindade, String tipoArma, double XP, Especial especial,
+            Cura cura, Golpe golpe) {
         super(nivel, nome, vida, tipoArmadura, nivelArmadura, hierarquia,
               nivelAlma, tipoDivindade, tipoArma, XP);
+        this.especial = especial;
+        this.cura = cura;
+        this.golpe = golpe;
     }
     
     @Override
@@ -66,165 +77,41 @@ public class Minotaur extends Inimigo implements Ataque, EspecialMitico, Curar{
         return this.XP;
     }
     
-    @Override
     public double ataqueSimples(){
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Machado de Guerra")){
-            base = 5;
-        }
-        else{
-            base = 3;
-        }
-        
-        String div = this.tipoDivindade;
-        if(div.equals("Athena")){
-            mod = 3;
-        }
-        if(div.equals("Zeus")){
-            mod = 4;
-        }
-        if(div.equals("Ares")){
-            mod = 5;
-        }
-                
-        double dano = nivel*base*mod;                
-        return dano;
+        return golpe.gSimples(nivel, nivelAlma, tipoArma, tipoDivindade);
     }
     
-    @Override
     public double ataqueRapido(){
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Machado de Guerra")){
-            base = 5;
-        }
-        else{
-            base = 3;
-        }
-        
-        String div = this.tipoDivindade;
-        if(div.equals("Athena")){
-            mod = 3;
-        }
-        if(div.equals("Zeus")){
-            mod = 4;
-        }
-        if(div.equals("Ares")){
-            mod = 5;
-        }
-                
-        double dano = nivel*base*mod*0.75;                
-        return dano;
+        return golpe.gRapido(nivel, nivelAlma, tipoArma, tipoDivindade);
     }
     
-    @Override
     public double ataqueForte(){
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Machado de Guerra")){
-            base = 5;
-        }
-        else{
-            base = 3;
-        }
-        
-        String div = this.tipoDivindade;
-        if(div.equals("Athena")){
-            mod = 3;
-        }
-        if(div.equals("Zeus")){
-            mod = 4;
-        }
-        if(div.equals("Ares")){
-            mod = 5;
-        }
-                
-        double dano = nivel*base*mod*1.5;                
-        return dano;
+        return golpe.gForte(nivel, nivelAlma, tipoArma, tipoDivindade);
     }
     
-    @Override
     public double ataqueCarregado(){
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Machado de Guerra")){
-            base = 5;
-        }
-        else{
-            base = 3;
-        }
-        
-        String div = this.tipoDivindade;
-        if(div.equals("Athena")){
-            mod = 3;
-        }
-        if(div.equals("Zeus")){
-            mod = 4;
-        }
-        if(div.equals("Ares")){
-            mod = 5;
-        }
-                
-        double dano = nivel*base*mod*2;                
-        return dano;
+        return golpe.gCarregado(nivel, nivelAlma, tipoArma, tipoDivindade);
     }
     
-    @Override
     public double ataqueCounter(){
-        double base = 0, mod = 0;
-        String tp_arma = this.tipoArma;
-        if(tp_arma.equals("Machado de Guerra")){
-            base = 5;
-        }
-        else{
-            base = 3;
-        }
-        
-        String div = this.tipoDivindade;
-        if(div.equals("Athena")){
-            mod = 3;
-        }
-        if(div.equals("Zeus")){
-            mod = 4;
-        }
-        if(div.equals("Ares")){
-            mod = 5;
-        }
-                
-        double dano = nivel*base*mod*nivelArmadura;                
-        return dano;
+        return golpe.gCounter(nivel, nivelArmadura, tipoArma, tipoDivindade);
     }
     
-    @Override
-    public double ataqueMaldicao(){
-        double dano = 10*this.nivel*this.nivelAlma;
-        return dano;
+    public double especialLeve(double alma, double armadura){
+        return especial.especialMagico(alma, armadura);
     }
     
-    @Override
-    public double ataqueSobrenatural(){
-        double dano = 20*this.nivel*this.nivelAlma;
-        return dano;
+    public double especialPesado(double alma, double armadura){
+        return especial.especialUltimate(alma, armadura);
     }
     
-    @Override
-    public void curativo(){
-        this.vida += 0.1*this.vida;
+    public double revigorar(double vida){
+        return cura.curativo(vida);
     }
     
-    @Override
-    public void rejuvenescer(){
-        this.vida += 0.3*this.vida;
-    }
     
-    @Override    
-    public void soproVida(){
-        this.vida += 0.5*this.vida;
-    }
-    
-    public void rajadaVida(){
-        this.vida += this.vida;
+    public double rejuvenescer(double vida){
+        return cura.soproVida(vida);
     }
     
     @Override

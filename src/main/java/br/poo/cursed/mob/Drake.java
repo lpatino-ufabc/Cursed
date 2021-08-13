@@ -1,14 +1,23 @@
 package br.poo.cursed.mob;
 
 import br.poo.cursed.npc.*;
+import br.poo.cursed.implementaespecial.*;
 
-public class Drake extends Inimigo implements Ataque, EspecialDragao, Curar{
+public class Drake extends Inimigo{
+    
+    private Especial especial;
+    private Cura cura;
+    private Golpe golpe;
     
     public Drake(double nivel, String nome, double vida, String tipoArmadura,
             double nivelArmadura, String hierarquia, double nivelAlma, 
-            String tipoDivindade, String tipoArma, double XP) {
+            String tipoDivindade, String tipoArma, double XP, Especial especial,
+            Cura cura, Golpe golpe) {
         super(nivel, nome, vida, tipoArmadura, nivelArmadura, hierarquia,
               nivelAlma, tipoDivindade, tipoArma, XP);
+        this.especial = especial;
+        this.cura = cura;
+        this.golpe = golpe;
     }
     
     @Override
@@ -66,65 +75,41 @@ public class Drake extends Inimigo implements Ataque, EspecialDragao, Curar{
         return this.XP;
     }
     
-    @Override
     public double ataqueSimples(){
-        double dano = nivel*nivelAlma;                
-        return dano;
+        return golpe.gSimples(nivel, nivelAlma, tipoArma, tipoArma);
     }
     
-    @Override
     public double ataqueRapido(){
-        double dano = nivel*nivelAlma*0.75;
-        return dano;
+        return golpe.gRapido(nivel, nivelAlma, tipoArma, tipoArma);
     }
     
-    @Override
     public double ataqueForte(){
-        double dano = nivel*nivelAlma*1.5;
-        return dano;
+        return golpe.gForte(nivel, nivelAlma, tipoArma, tipoArma);
     }
     
-    @Override
     public double ataqueCarregado(){
-        double dano = nivel*nivelAlma*2.5;
-        return dano;
+        return golpe.gCarregado(nivel, nivelAlma, tipoArma, tipoArma);
     }
     
-    @Override
     public double ataqueCounter(){
-        double dano = nivel*nivelArmadura*2.5;
-        return dano;
+        return golpe.gCounter(nivel, nivelArmadura, tipoArma, tipoArma);
     }
     
-    @Override
-    public double ataqueFogo(){
-        double dano = nivel*nivelAlma*10;
-        return dano;
+    public double especialLeve(double alma, double vida){
+        return especial.especialMagico(alma, vida);
     }
     
-    @Override
-    public double ataqueVoador(){
-        double dano = nivel*nivelArmadura*6;
-        return dano;
+    public double especialPesado(double alma, double vida){
+        return especial.especialUltimate(alma, vida);
+    }    
+    
+    public double revigorar(double vida){
+        return cura.curativo(vida);
     }
     
-    @Override
-    public void curativo(){
-        this.vida += 0.1*this.vida;
-    }
     
-    @Override
-    public void rejuvenescer(){
-        this.vida += 0.3*this.vida;
-    }
-    
-    @Override    
-    public void soproVida(){
-        this.vida += 0.5*this.vida;
-    }
-    
-    public void rajadaVida(){
-        this.vida += this.vida;
+    public double rejuvenescer(double vida){
+        return cura.soproVida(vida);
     }
     
     @Override

@@ -1,5 +1,8 @@
 package br.poo.cursed.npc;
 
+import br.poo.cursed.implementaespecial.Cura;
+import br.poo.cursed.implementaespecial.Especial;
+import br.poo.cursed.implementaespecial.Golpe;
 import br.poo.cursed.mob.Drake;
 import br.poo.cursed.mob.Gryphon;
 import br.poo.cursed.mob.Inimigo;
@@ -8,13 +11,21 @@ import br.poo.cursed.mob.Skeletons;
 import br.poo.cursed.mob.Wyrm;
 import br.poo.cursed.mob.Zombies;
 
-public class Ranger extends Heroes implements Ataque, EspecialRanged {
+public class Ranger extends Heroes{
+    
+    private Especial especial;
+    private Cura cura;
+    private Golpe golpe;
 
     public Ranger(double nivel, String nome, double forca, double agilidade,
             double intelecto, double vida, double fe, String tipoArmadura, 
-            double nivelArmadura, String tipoArma, double XP, double lvlXP) {
+            double nivelArmadura, String tipoArma, double XP, double lvlXP, 
+            Especial especial, Cura cura, Golpe golpe) {
         super(nivel, nome, forca, agilidade, intelecto, vida, fe, tipoArmadura, 
             nivelArmadura, tipoArma, XP, lvlXP);
+        this.especial = especial;
+        this.cura = cura;
+        this.golpe = golpe;
     }
 
     @Override
@@ -52,101 +63,41 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
         return this.tipoArma;
     }
 
-    @Override
-    public double ataqueSimples() {
-        double base = 6, mod = 12;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Arco Curto")) {
-            base = this.agilidade*9;
-        }
-        if (tp_arma.equals("Arco Composto")) {
-            base = this.agilidade*18;
-        } else {
-            base = this.agilidade*30;
-        }
-
-        double dano = nivel * base;
-        return dano;
+    public double ataqueSimples(){
+        return golpe.gSimples(intelecto, agilidade, tipoArma, tipoArmadura);
     }
-
-    @Override
-    public double ataqueRapido() {
-        double base = 6, mod = 12;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Arco Curto")) {
-            base = this.agilidade*9;
-        }
-        if (tp_arma.equals("Arco Composto")) {
-            base = this.agilidade*18;
-        } else {
-            base = this.agilidade*30;
-        }
-
-        double dano = nivel * base * 0.75;
-        return dano;
+    
+    public double ataqueRapido(){
+        return golpe.gRapido(intelecto, agilidade, tipoArma, tipoArmadura);
     }
-
-    @Override
-    public double ataqueForte() {
-        double base = 6, mod = 12;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Arco Curto")) {
-            base = this.agilidade*9;
-        }
-        if (tp_arma.equals("Arco Composto")) {
-            base = this.agilidade*18;
-        } else {
-            base = this.agilidade*30;
-        }
-
-        double dano = nivel * base * 1.75;
-        return dano;
+    
+    public double ataqueForte(){
+        return golpe.gForte(intelecto, agilidade, tipoArma, tipoArmadura);
     }
-
-    @Override
-    public double ataqueCarregado() {
-        double base = 6, mod = 12;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Arco Curto")) {
-            base = this.agilidade*9;
-        }
-        if (tp_arma.equals("Arco Composto")) {
-            base = this.agilidade*18;
-        } else {
-            base = this.agilidade*30;
-        }
-
-        double dano = nivel * base * 2.5;
-        return dano;
+    
+    public double ataqueCarregado(){
+        return golpe.gCarregado(intelecto, agilidade, tipoArma, tipoArmadura);
     }
-
-    @Override
-    public double ataqueCounter() {
-        double base = 6, mod = 12;
-        String tp_arma = this.tipoArma;
-        if (tp_arma.equals("Arco Curto")) {
-            base = this.agilidade*9;
-        }
-        if (tp_arma.equals("Arco Composto")) {
-            base = this.agilidade*18;
-        } else {
-            base = this.agilidade*30;
-        }
-
-        double dano = nivel * base * nivelArmadura * 1.5;
-        return dano;
+    
+    public double ataqueCounter(){
+        return golpe.gCounter(intelecto, agilidade, tipoArma, tipoArmadura);
     }
-
-    @Override
-    public double misseisMagicos() {
-        double dano = 0;
-        return dano;
+    
+    public double especialLeve(double agilidade, double intelecto){
+        return especial.especialMagico(agilidade, intelecto);
     }
-
-    @Override
-    public double armaMagica() {
-        double dano = 0;
-        return dano;
+    
+    public double especialPesado(double agilidade, double intelecto){
+        return especial.especialUltimate(agilidade, intelecto);
+    }
+    
+    public double revigorar(double vida){
+        return cura.curativo(vida);
+    }
+    
+    
+    public double rejuvenescer(double vida){
+        return cura.soproVida(vida);
     }
 
     @Override
@@ -170,10 +121,10 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
                 dano = drago.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = drago.ataqueFogo();
+                dano = drago.especialLeve(drago.getAlma(), drago.getVida());
             }
             if (opcao.equals("7")) {
-                dano = drago.ataqueVoador();
+                dano = drago.especialPesado(drago.getAlma(), drago.getVida());
             }
         }
         if (inimigo instanceof Wyrm) {
@@ -194,10 +145,10 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
                 dano = virme.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = virme.ataqueFogo();
+                dano = virme.especialLeve(virme.getAlma(), virme.getVida());
             }
             if (opcao.equals("7")) {
-                dano = virme.ataqueVoador();
+                dano = virme.especialPesado(virme.getAlma(), virme.getVida());
             }
         }
         if (inimigo instanceof Minotaur) {
@@ -218,10 +169,10 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
                 dano = minos.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = minos.ataqueMaldicao();
+                dano = minos.especialLeve(minos.getAlma(), minos.getNivelArmadura());
             }
             if (opcao.equals("7")) {
-                dano = minos.ataqueSobrenatural();
+                dano = minos.especialPesado(minos.getAlma(), minos.getNivelArmadura());
             }
         }
         if (inimigo instanceof Gryphon) {
@@ -242,10 +193,10 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
                 dano = arara.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = arara.ataqueMaldicao();
+                dano = arara.especialLeve(arara.getAlma(), arara.getNivelArmadura());
             }
             if (opcao.equals("7")) {
-                dano = arara.ataqueSobrenatural();
+                dano = arara.especialPesado(arara.getAlma(), arara.getNivelArmadura());
             }
         }
         if (inimigo instanceof Zombies) {
@@ -266,10 +217,10 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
                 dano = necro.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = necro.ataqueVampirico();
+                dano = necro.especialLeve(necro.getAlma(), necro.getVida());
             }
             if (opcao.equals("7")) {
-                dano = necro.ataqueVenenoso();
+                dano = necro.especialPesado(necro.getAlma(), necro.getVida());
             }
         }
         if (inimigo instanceof Skeletons) {
@@ -290,10 +241,10 @@ public class Ranger extends Heroes implements Ataque, EspecialRanged {
                 dano = osso.ataqueCounter();
             }
             if (opcao.equals("6")) {
-                dano = osso.ataqueVampirico();
+                dano = osso.especialLeve(osso.getAlma(), osso.getVida());
             }
             if (opcao.equals("7")) {
-                dano = osso.ataqueVenenoso();
+                dano = osso.especialPesado(osso.getAlma(), osso.getVida());
             }
         }    
         
