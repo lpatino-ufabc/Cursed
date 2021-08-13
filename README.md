@@ -31,5 +31,6 @@ v.1.5:
 v.1.6r:
 	* Versão com uma fase básica e um inimigo básico.
 	* Inclusão de interfaces de golpes especiais.
+
 v.1.7r:
 	* Alterações para padrão Strategy
