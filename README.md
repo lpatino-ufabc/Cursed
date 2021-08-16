@@ -34,3 +34,7 @@ v.1.6r:
 
 v.1.7r:
 	* Alterações para padrão Strategy
+
+v.1.8r:
+	* Modificações na main para cenário teste.
+	* Criação de classe específica para cenário.

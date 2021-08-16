@@ -192,7 +192,7 @@ public class Gryphon extends Inimigo{
         if (this.vida > dano) {
             this.vida = this.vida - dano;
         } 
-        if (this.vida <= dano){
+        else{
             this.vida = 0;
         }
     }
